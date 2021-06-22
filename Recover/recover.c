@@ -6,11 +6,11 @@
 
 int main(int argc, char *argv[])
 {
-    if(argv[1])
+    if (argv[1])
     {
         // open file
         FILE *f = fopen(argv[1], "r");
-        if(!f)
+        if (!f)
         {
             printf("file not found.\n");
         }
@@ -26,13 +26,13 @@ int main(int argc, char *argv[])
         do
         {
             //check for start of jpeg
-            if(buffer[0] == 0xff &&
+            if (buffer[0] == 0xff &&
                 buffer[1] == 0xd8 &&
                 buffer[2] == 0xff &&
                 (buffer[3] & 0xf0) == 0xe0)
             {
                 // is there a file open? if so close it and make a new one
-                if(fileOpen)
+                if (fileOpen)
                 {
                     fclose(img);
                     jpegCounter++;
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
             // if not start of jpeg and a file is open then continue writing
             else
             {
-                if(fileOpen)
+                if (fileOpen)
                 {
                     fwrite(buffer, BUFFER_SIZE, 1, img);
                 }
@@ -59,12 +59,12 @@ int main(int argc, char *argv[])
             
             length = fread(buffer, BUFFER_SIZE, 1, f);
         }
-        while(length > 0);
+        while (length > 0);
     }
     else
     {
         printf("no file specified!");
-        return 2;
+        return 1;
     }
     
 }

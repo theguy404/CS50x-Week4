@@ -2,4 +2,4 @@
 problem set 4 for CS50x
 
 ## Full details availible at
-https://cs50.harvard.edu/x/2020/psets/4/
+https://cs50.harvard.edu/x/2021/weeks/4/
